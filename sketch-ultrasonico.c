@@ -2,7 +2,7 @@ const int TRIG_PIN = 6;
 const int ECHO_PIN = 7;
 const int LED_PIN = 3;
 const int BUZZER_PIN = 4;
-const int DISTANCE_THRESHOLD = 15; // en centímetros
+const int DISTANCE = 15; // en centímetros
 
 void setup() {
     Serial.begin(9600);
@@ -19,7 +19,7 @@ void loop() {
     float duration_us = pulseIn(ECHO_PIN, HIGH);
     float distance_cm = 0.017 * duration_us;
 
-    if (distance_cm < DISTANCE_THRESHOLD) {
+    if (distance_cm < DISTANCE) {
         digitalWrite(LED_PIN, HIGH);
         digitalWrite(BUZZER_PIN, HIGH);
     } else {
